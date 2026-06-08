@@ -6,7 +6,6 @@
 <title>Mente Forte SOS — Alívio para Ansiedade em 3 Minutos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
-<script src="https://js.stripe.com/v3/"></script>
 <style>
 :root {
   --bg0:#04040e; --bg1:#08081c; --bg2:#0f0f28; --bg3:#171732;
@@ -20,12 +19,11 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg0);color:var(--t1);overflow-x:hidden;line-height:1.6}
 h1,h2,h3{font-family:'Sora',sans-serif}
-
+ 
 body::before{content:'';position:fixed;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   opacity:.025;pointer-events:none;z-index:0}
-
-/* NAV */
+ 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;
   padding:14px 32px;display:flex;justify-content:space-between;align-items:center;
   background:rgba(4,4,14,.88);backdrop-filter:blur(20px);
@@ -41,8 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   transition:transform .15s,box-shadow .2s}
 .btn-cta-nav:hover{transform:scale(1.03);box-shadow:0 4px 20px var(--primary-glow)}
 @media(max-width:768px){.nav-links{display:none};nav{padding:12px 20px}}
-
-/* HERO */
+ 
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
   padding:110px 24px 80px;position:relative;overflow:hidden}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.3}
@@ -57,7 +54,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   animation:driftA 8s ease-in-out infinite reverse}
 @keyframes driftA{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
 @keyframes driftB{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,30px)}}
-
+ 
 .hero-inner{position:relative;z-index:1;max-width:1100px;width:100%;
   display:grid;grid-template-columns:1fr 440px;gap:60px;align-items:center}
 @media(max-width:900px){
@@ -65,7 +62,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   .hero-phone{order:-1;display:flex;justify-content:center}
   .hero-sub,.hero-badge{margin-left:auto;margin-right:auto}
   .hero-ctas,.hero-trust{justify-content:center}}
-
+ 
 .hero-badge{display:inline-flex;align-items:center;gap:8px;
   background:rgba(232,64,64,.12);border:.5px solid rgba(232,64,64,.3);
   border-radius:50px;padding:6px 14px;font-size:12px;color:#f09090;
@@ -73,12 +70,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
 .badge-pulse{width:6px;height:6px;border-radius:50%;background:var(--red);
   animation:pulse 1.8s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
-
+ 
 .hero-title{font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.1;
   margin-bottom:22px;animation:fadeUp .7s ease both}
 .hero-title .grad{background:linear-gradient(90deg,var(--primary),#a06af8);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-
+ 
 .hero-sub{font-size:17px;color:var(--t2);max-width:480px;margin-bottom:36px;
   line-height:1.7;animation:fadeUp .8s ease .1s both}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s ease .2s both}
@@ -86,22 +83,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   font-size:12px;color:var(--t3);animation:fadeUp .8s ease .35s both}
 .trust-div{width:1px;height:14px;background:var(--border)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-/* BUTTONS */
+ 
 .btn-red{padding:16px 32px;border-radius:14px;
   background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;
   font-family:'Sora',sans-serif;font-size:15px;font-weight:700;border:none;cursor:pointer;
   display:flex;align-items:center;gap:10px;
-  box-shadow:0 8px 32px var(--red-glow);transition:transform .2s,box-shadow .2s}
+  box-shadow:0 8px 32px var(--red-glow);transition:transform .2s,box-shadow .2s;
+  text-decoration:none}
 .btn-red:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(232,64,64,.35)}
-.btn-red:disabled{opacity:.6;cursor:not-allowed;transform:none}
-
+ 
 .btn-ghost{padding:16px 28px;border-radius:14px;background:transparent;
   border:.5px solid var(--border);color:var(--t2);
   font-family:'Sora',sans-serif;font-size:15px;font-weight:600;cursor:pointer;
   display:flex;align-items:center;gap:8px;transition:all .2s}
 .btn-ghost:hover{color:var(--t1);border-color:var(--primary);background:rgba(107,61,232,.08)}
-
+ 
 .btn-primary{padding:16px 32px;border-radius:14px;
   background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;
   font-family:'Sora',sans-serif;font-size:15px;font-weight:700;border:none;cursor:pointer;
@@ -109,9 +105,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   box-shadow:0 8px 32px var(--primary-glow);transition:transform .2s,box-shadow .2s;
   white-space:nowrap}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(107,61,232,.4)}
-.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}
-
-/* PHONE MOCKUP */
+ 
 .phone-wrap{position:relative;animation:fadeUp .9s ease .15s both}
 .phone-shadow{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);
   width:220px;height:40px;
@@ -150,8 +144,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
 .pn{font-size:8px;color:var(--t3);text-align:center;padding:2px 6px}
 .pn .ni{font-size:14px;display:block;margin-bottom:1px}
 .pn.act{color:var(--primary)}
-
-/* STATS */
+ 
 .stats-bar{max-width:900px;margin:0 auto;display:grid;
   grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
   border:.5px solid var(--border);border-radius:20px;overflow:hidden}
@@ -162,16 +155,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   display:block;margin-bottom:4px}
 .stat-label{font-size:13px;color:var(--t2)}
-
-/* SECTIONS */
+ 
 section{position:relative;padding:100px 24px;overflow:hidden}
 .si{max-width:1100px;margin:0 auto}
 .slabel{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
   color:var(--primary);margin-bottom:12px}
 .stitle{font-size:clamp(28px,3.5vw,44px);font-weight:800;margin-bottom:16px;line-height:1.15}
 .ssub{font-size:16px;color:var(--t2);max-width:520px}
-
-/* STEPS */
+ 
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
 @media(max-width:700px){.steps-grid{grid-template-columns:1fr}}
 .step-card{background:var(--bg1);border:.5px solid var(--border);
@@ -187,8 +178,7 @@ section{position:relative;padding:100px 24px;overflow:hidden}
 .step-icon{font-size:32px;margin-bottom:14px;display:block}
 .step-title{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
 .step-desc{font-size:14px;color:var(--t2);line-height:1.65}
-
-/* FEATURES */
+ 
 .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 @media(max-width:700px){.features-grid{grid-template-columns:1fr}}
 .feat{background:var(--bg2);border:.5px solid var(--border);border-radius:20px;
@@ -204,8 +194,7 @@ section{position:relative;padding:100px 24px;overflow:hidden}
   padding:2px 8px;border-radius:6px;margin-left:8px}
 .tag-free{background:rgba(29,201,138,.15);color:var(--green);border:.5px solid rgba(29,201,138,.3)}
 .tag-pro{background:rgba(245,166,35,.12);color:var(--gold);border:.5px solid rgba(245,166,35,.25)}
-
-/* TESTIMONIALS */
+ 
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
 @media(max-width:900px){.tgrid{grid-template-columns:1fr}}
 .tcard{background:var(--bg1);border:.5px solid var(--border);border-radius:20px;padding:24px;
@@ -222,8 +211,7 @@ section{position:relative;padding:100px 24px;overflow:hidden}
 .av3{background:linear-gradient(135deg,#401020,#801840)}
 .t-name{font-size:13px;font-weight:600;color:var(--t1)}
 .t-role{font-size:11px;color:var(--t3)}
-
-/* PRICING */
+ 
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
   margin:56px auto 0;max-width:800px}
 @media(max-width:700px){.pgrid{grid-template-columns:1fr}}
@@ -249,51 +237,26 @@ section{position:relative;padding:100px 24px;overflow:hidden}
 .pfeats li:last-child{border-bottom:none}
 .ck{color:var(--green);font-size:14px}
 .lk{color:var(--t3);font-size:12px}
-
+ 
 .btn-free-plan{width:100%;padding:14px;border-radius:12px;
   background:transparent;border:.5px solid var(--border);
   color:var(--t2);font-family:'Sora',sans-serif;
   font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
 .btn-free-plan:hover{border-color:var(--primary);color:var(--t1);
   background:rgba(107,61,232,.08)}
-
+ 
 .btn-stripe{width:100%;padding:14px;border-radius:12px;
   background:linear-gradient(135deg,var(--primary),var(--primary2));
   color:#fff;font-family:'Sora',sans-serif;
   font-size:14px;font-weight:700;border:none;cursor:pointer;
   box-shadow:0 4px 24px var(--primary-glow);
   transition:transform .2s,box-shadow .2s;position:relative;z-index:1;
-  display:flex;align-items:center;justify-content:center;gap:8px}
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  text-decoration:none}
 .btn-stripe:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(107,61,232,.4)}
-.btn-stripe:disabled{opacity:.6;cursor:not-allowed;transform:none}
 .stripe-note{text-align:center;margin-top:12px;font-size:11px;
   color:rgba(255,255,255,.3);position:relative;z-index:1}
-
-/* STRIPE CONFIG BOX */
-.config-box{
-  max-width:800px;margin:40px auto 0;
-  background:rgba(107,61,232,.08);border:.5px solid rgba(107,61,232,.25);
-  border-radius:16px;padding:24px 28px;
-}
-.config-box h3{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;
-  color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.config-fields{display:grid;gap:12px}
-.config-field label{font-size:11px;color:var(--t3);text-transform:uppercase;
-  letter-spacing:1px;display:block;margin-bottom:4px}
-.config-field input{width:100%;background:var(--bg3);border:.5px solid var(--border);
-  border-radius:8px;padding:10px 14px;font-size:13px;color:var(--t1);
-  font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
-.config-field input:focus{border-color:var(--primary)}
-.config-field input::placeholder{color:var(--t3)}
-.config-save{padding:10px 24px;border-radius:10px;
-  background:var(--primary);color:#fff;font-family:'Sora',sans-serif;
-  font-size:13px;font-weight:600;border:none;cursor:pointer;
-  margin-top:4px;transition:background .2s}
-.config-save:hover{background:var(--primary2)}
-.config-ok{display:none;color:var(--green);font-size:13px;font-weight:600;
-  margin-top:8px;align-items:center;gap:6px}
-
-/* SOS FINAL */
+ 
 .sos-final{padding:80px 24px}
 .sos-box{max-width:700px;margin:0 auto;
   background:linear-gradient(135deg,rgba(232,64,64,.1),rgba(107,61,232,.08));
@@ -310,8 +273,7 @@ section{position:relative;padding:100px 24px;overflow:hidden}
   position:relative;z-index:1;line-height:1.7}
 .sos-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
   position:relative;z-index:1}
-
-/* TOAST */
+ 
 .toast{position:fixed;bottom:28px;right:28px;z-index:999;
   background:var(--bg2);border:.5px solid var(--border);
   border-radius:14px;padding:14px 20px;font-size:13px;color:var(--t1);
@@ -321,8 +283,7 @@ section{position:relative;padding:100px 24px;overflow:hidden}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.success{border-color:rgba(29,201,138,.4)}
 .toast.error{border-color:rgba(232,64,64,.4)}
-
-/* FOOTER */
+ 
 footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24px}
 .footer-in{max-width:1100px;margin:0 auto;
   display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
@@ -332,21 +293,18 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
 .footer-links{display:flex;gap:20px}
 .footer-links a{font-size:12px;color:var(--t3);text-decoration:none}
 .footer-links a:hover{color:var(--t2)}
-
-/* REVEAL */
+ 
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
-
-<!-- TOAST -->
+ 
 <div class="toast" id="toast">
   <span id="toast-icon">✅</span>
   <span id="toast-msg">Mensagem aqui</span>
 </div>
-
-<!-- NAV -->
+ 
 <nav>
   <div class="nav-logo">
     <span>🆘</span>
@@ -358,10 +316,9 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
     <a href="#depoimentos">Depoimentos</a>
     <a href="#planos">Planos</a>
   </div>
-  <button class="btn-cta-nav" onclick="scrollTo('planos')">Assinar Premium</button>
+  <a href="https://buy.stripe.com/5kQ0017I6Sm638ax38IU00" class="btn-cta-nav">Assinar Premium</a>
 </nav>
-
-<!-- HERO -->
+ 
 <section class="hero">
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
@@ -380,10 +337,10 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
         O Mente Forte SOS te guia por exercícios de respiração, meditações e check-ins emocionais — quando você mais precisa, direto no celular.
       </p>
       <div class="hero-ctas">
-        <button class="btn-red" onclick="scrollTo('planos')">
+        <a href="https://buy.stripe.com/5kQ0017I6Sm638ax38IU00" class="btn-red">
           🆘 Começar grátis agora
-        </button>
-        <button class="btn-ghost" onclick="scrollTo('como-funciona')">
+        </a>
+        <button class="btn-ghost" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">
           Como funciona →
         </button>
       </div>
@@ -395,7 +352,6 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
         <span>🔒 100% privado</span>
       </div>
     </div>
-    <!-- PHONE MOCKUP -->
     <div class="hero-phone">
       <div class="phone-wrap">
         <div class="phone">
@@ -438,8 +394,7 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
     </div>
   </div>
 </section>
-
-<!-- STATS BAR -->
+ 
 <div style="padding:0 24px 80px;position:relative;z-index:1">
   <div class="stats-bar reveal">
     <div class="stat-cell"><span class="stat-num">10k+</span><span class="stat-label">usuários ativos por mês</span></div>
@@ -447,8 +402,7 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
     <div class="stat-cell"><span class="stat-num">4.9★</span><span class="stat-label">avaliação média</span></div>
   </div>
 </div>
-
-<!-- COMO FUNCIONA -->
+ 
 <section id="como-funciona">
   <div class="si">
     <div class="reveal">
@@ -478,8 +432,7 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
     </div>
   </div>
 </section>
-
-<!-- FUNCIONALIDADES -->
+ 
 <section id="funcionalidades" style="background:linear-gradient(180deg,var(--bg0),var(--bg1))">
   <div class="si">
     <div class="reveal">
@@ -533,8 +486,7 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
     </div>
   </div>
 </section>
-
-<!-- DEPOIMENTOS -->
+ 
 <section id="depoimentos">
   <div class="si">
     <div class="reveal">
@@ -570,8 +522,7 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
     </div>
   </div>
 </section>
-
-<!-- PLANOS + STRIPE -->
+ 
 <section id="planos" style="background:linear-gradient(180deg,var(--bg1),var(--bg0))">
   <div class="si">
     <div class="reveal" style="text-align:center">
@@ -579,9 +530,8 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
       <h2 class="stitle">Simples. Transparente. Justo.</h2>
       <p class="ssub" style="margin:0 auto">Comece grátis. Assine quando quiser ir mais fundo.</p>
     </div>
-
+ 
     <div class="pgrid">
-      <!-- GRÁTIS -->
       <div class="pcard free reveal">
         <div class="pname">Gratuito</div>
         <div class="pamount">R$ 0</div>
@@ -600,8 +550,7 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
           Usar grátis agora
         </button>
       </div>
-
-      <!-- PREMIUM -->
+ 
       <div class="pcard premium reveal" style="transition-delay:.1s">
         <div class="pbadge">MAIS POPULAR</div>
         <div class="pname" style="color:rgba(255,255,255,.6)">Premium</div>
@@ -615,59 +564,31 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
           <li style="border-color:rgba(255,255,255,.08)"><span class="ck">✓</span> Histórico emocional com IA</li>
           <li style="border-color:rgba(255,255,255,.08)"><span class="ck">✓</span> Suporte prioritário</li>
         </ul>
-        <button class="btn-stripe" id="btn-subscribe" onclick="handleStripeCheckout()">
-          <span id="btn-subscribe-text">💳 Assinar por R$ 14,90/mês</span>
-        </button>
+        <a href="https://buy.stripe.com/5kQ0017I6Sm638ax38IU00" class="btn-stripe">
+          💳 Assinar por R$ 14,90/mês
+        </a>
         <div class="stripe-note">7 dias grátis para testar · Cancele quando quiser</div>
       </div>
     </div>
-
-    <!-- CONFIG BOX STRIPE -->
-    <div class="config-box reveal" style="transition-delay:.2s">
-      <h3>⚙️ Configurar Stripe (só você vê este painel)</h3>
-      <p style="font-size:13px;color:var(--t2);margin-bottom:16px">
-        Cole suas chaves do Stripe abaixo para ativar os pagamentos.
-        <a href="https://dashboard.stripe.com/apikeys" target="_blank" style="color:var(--primary)">Pegar chaves no Stripe →</a>
-      </p>
-      <div class="config-fields">
-        <div class="config-field">
-          <label>Chave Publicável (pk_test_... ou pk_live_...)</label>
-          <input type="text" id="cfg-pk" placeholder="pk_test_SuaChaveAqui" />
-        </div>
-        <div class="config-field">
-          <label>Price ID do produto (price_...)</label>
-          <input type="text" id="cfg-price" placeholder="price_SeuPriceIdAqui" />
-        </div>
-        <div class="config-field">
-          <label>URL de sucesso (após pagamento confirmado)</label>
-          <input type="text" id="cfg-success" placeholder="https://seusite.vercel.app/sucesso.html" />
-        </div>
-        <button class="config-save" onclick="saveConfig()">✅ Salvar configuração</button>
-        <div class="config-ok" id="cfg-ok">✅ Configuração salva! Botão de assinatura ativado.</div>
-      </div>
-    </div>
-
   </div>
 </section>
-
-<!-- SOS FINAL CTA -->
+ 
 <section class="sos-final">
   <div class="sos-box reveal">
     <span class="sos-emoji">🆘</span>
     <h2>Você não está sozinho.</h2>
     <p>Ansiedade, crise, estresse — acontece com todos nós. O Mente Forte SOS está aqui para quando você precisar de alívio agora, de graça, sem julgamento.</p>
     <div class="sos-btns">
-      <button class="btn-red" onclick="showToast('✅ Acesse pelo navegador enquanto o app está na loja!','success')">
-        🆘 Acessar o SOS agora
-      </button>
-      <button class="btn-ghost" onclick="scrollTo('planos')">
+      <a href="https://buy.stripe.com/5kQ0017I6Sm638ax38IU00" class="btn-red">
+        🆘 Assinar Premium agora
+      </a>
+      <button class="btn-ghost" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">
         Ver planos →
       </button>
     </div>
   </div>
 </section>
-
-<!-- FOOTER -->
+ 
 <footer>
   <div class="footer-in">
     <div class="footer-logo">Mente<span>Forte</span> SOS</div>
@@ -679,77 +600,8 @@ footer{background:var(--bg1);border-top:.5px solid var(--border);padding:40px 24
     </div>
   </div>
 </footer>
-
+ 
 <script>
-// ── CONFIGURAÇÃO STRIPE ──────────────────────────────────────────
-let STRIPE_KEY  = localStorage.getItem('mf_pk')      || '';
-let PRICE_ID    = localStorage.getItem('mf_price')   || '';
-let SUCCESS_URL = localStorage.getItem('mf_success') || (window.location.origin + '/sucesso.html');
-let CANCEL_URL  = window.location.href + '#planos';
-
-// ── SALVAR CONFIG ────────────────────────────────────────────────
-function saveConfig() {
-  const pk  = document.getElementById('cfg-pk').value.trim();
-  const pid = document.getElementById('cfg-price').value.trim();
-  const suc = document.getElementById('cfg-success').value.trim();
-
-  if (!pk || !pid) {
-    showToast('⚠️ Preencha a chave publicável e o Price ID', 'error');
-    return;
-  }
-  STRIPE_KEY  = pk;
-  PRICE_ID    = pid;
-  SUCCESS_URL = suc || SUCCESS_URL;
-
-  localStorage.setItem('mf_pk', pk);
-  localStorage.setItem('mf_price', pid);
-  if (suc) localStorage.setItem('mf_success', suc);
-
-  document.getElementById('cfg-ok').style.display = 'flex';
-  showToast('✅ Stripe configurado! Teste o botão de assinatura.', 'success');
-}
-
-// ── STRIPE CHECKOUT ──────────────────────────────────────────────
-async function handleStripeCheckout() {
-  if (!STRIPE_KEY || !PRICE_ID) {
-    showToast('⚠️ Configure sua chave Stripe primeiro (veja o painel abaixo)', 'error');
-    document.querySelector('.config-box').scrollIntoView({ behavior: 'smooth' });
-    return;
-  }
-
-  const btn = document.getElementById('btn-subscribe');
-  const txt = document.getElementById('btn-subscribe-text');
-  btn.disabled = true;
-  txt.textContent = '⏳ Redirecionando para pagamento...';
-
-  try {
-    const stripe = Stripe(STRIPE_KEY);
-    const result = await stripe.redirectToCheckout({
-      lineItems: [{ price: PRICE_ID, quantity: 1 }],
-      mode: 'subscription',
-      successUrl: SUCCESS_URL,
-      cancelUrl: CANCEL_URL,
-      locale: 'pt-BR',
-    });
-
-    if (result.error) {
-      showToast('❌ ' + result.error.message, 'error');
-      btn.disabled = false;
-      txt.textContent = '💳 Assinar por R$ 14,90/mês';
-    }
-  } catch (err) {
-    showToast('❌ Erro: ' + err.message, 'error');
-    btn.disabled = false;
-    txt.textContent = '💳 Assinar por R$ 14,90/mês';
-  }
-}
-
-// ── UTILS ────────────────────────────────────────────────────────
-function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-}
-
-let toastTimer;
 function showToast(msg, type = 'success') {
   const t   = document.getElementById('toast');
   const ico = document.getElementById('toast-icon');
@@ -758,27 +610,14 @@ function showToast(msg, type = 'success') {
   ico.textContent = type === 'success' ? '✅' : '⚠️';
   m.textContent = msg;
   t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 4000);
+  setTimeout(() => t.classList.remove('show'), 4000);
 }
-
-// ── SCROLL REVEAL ────────────────────────────────────────────────
+ 
 const obs = new IntersectionObserver(
   entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
   { threshold: 0.12 }
 );
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-// ── PREENCHER CONFIG SE JÁ SALVA ─────────────────────────────────
-window.addEventListener('load', () => {
-  if (STRIPE_KEY) document.getElementById('cfg-pk').value = STRIPE_KEY;
-  if (PRICE_ID)   document.getElementById('cfg-price').value = PRICE_ID;
-  const savedSuccess = localStorage.getItem('mf_success');
-  if (savedSuccess) document.getElementById('cfg-success').value = savedSuccess;
-  if (STRIPE_KEY && PRICE_ID) {
-    document.getElementById('cfg-ok').style.display = 'flex';
-  }
-});
 </script>
 </body>
 </html>
